@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 import openai
@@ -15,7 +15,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Clé OpenAI depuis les variables d'environnement
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class SearchRequest(BaseModel):
